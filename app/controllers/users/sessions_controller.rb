@@ -7,6 +7,7 @@ def create
     if user && user.valid_password?(sign_in_params[:password])
       @current_user = user
       @current_user.token=@current_user.generate_jwt
+      @current_user.save
       render json: { login: { 'user' => @current_user.email, 'token' => @current_user.token }, status: true }
       
     else

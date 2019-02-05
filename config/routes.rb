@@ -20,5 +20,6 @@ Rails.application.routes.draw do
                registrations: 'users/registrations'
 
              }
+    post "validator", to: "validator#view"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

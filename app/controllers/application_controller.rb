@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::API
+   before_action :configure_permitted_parameters, if: :devise_controller?
     def render_resource(resource)
 
     if resource.errors.empty?
@@ -41,7 +42,7 @@ class ApplicationController < ActionController::API
   private
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) << :username
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :lastname, :name])
   end
 
   def authenticate_user
