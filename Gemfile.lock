@@ -53,6 +53,9 @@ GEM
     devise-jwt (0.5.8)
       devise (~> 4.0)
       warden-jwt_auth (~> 0.3.5)
+    devise_ldap_authenticatable (0.8.6)
+      devise (>= 3.4.1)
+      net-ldap (>= 0.16.0)
     dry-auto_inject (0.6.0)
       dry-container (>= 0.3.4)
     dry-configurable (0.7.0)
@@ -79,6 +82,7 @@ GEM
     mini_mime (1.0.1)
     mini_portile2 (2.4.0)
     minitest (5.11.3)
+    net-ldap (0.16.1)
     nio4r (2.3.1)
     nokogiri (1.10.1)
       mini_portile2 (~> 2.4.0)
@@ -151,7 +155,9 @@ PLATFORMS
 DEPENDENCIES
   byebug
   devise-jwt
+  devise_ldap_authenticatable
   listen (~> 3.0.5)
+  net-ldap
   puma (~> 3.0)
   rails (~> 5.0.0)
   spring

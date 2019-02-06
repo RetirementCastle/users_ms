@@ -22,6 +22,8 @@ gem 'puma', '~> 3.0'
 
 #Custom Gems
 gem 'devise-jwt'
+gem "devise_ldap_authenticatable"
+gem 'net-ldap'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
