@@ -10,7 +10,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     build_resource(sign_up_params)
 
 
-
+    puts(resource)
     resource.save
 
     render_resource(resource)

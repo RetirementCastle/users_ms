@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Users::SessionsController < Devise::SessionsController
-def create
+  def create
     user = User.find_by_email(sign_in_params[:email])
 
     if user && user.valid_password?(sign_in_params[:password])
