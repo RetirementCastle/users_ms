@@ -6,6 +6,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
 
   def create
+
     
     begin
       build_resource(sign_up_params)
@@ -14,6 +15,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     rescue
       render json: { response: { 'Username' => "No valido", 'Code' => 95 }, status: false }
     end
+
   end
 
 end

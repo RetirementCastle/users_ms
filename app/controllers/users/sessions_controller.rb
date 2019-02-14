@@ -3,7 +3,7 @@ require 'net/ldap'
 #require 'devise/strategies/authenticatable'
 
 class Users::SessionsController < Devise::SessionsController
-def create
+  def create
     user = User.find_by_email(sign_in_params[:email])
     
     
