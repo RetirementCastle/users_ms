@@ -5,6 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :jwt_authenticatable,
          jwt_revocation_strategy: JwtBlackList
+  def get_ldap_email
+    self.email = Devise::LDAP::Adapter.get_ldap_param(self.username, "mail")
+  end
   def generate_jwt
   JWT.encode({ id: id,
               exp: 60.days.from_now.to_i },

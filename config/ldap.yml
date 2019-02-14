@@ -3,7 +3,7 @@
 # You can also just copy and paste the tree (do not include the "authorizations") to each
 # environment if you need something different per environment.
 authorizations: &AUTHORIZATIONS
-  allow_unauthenticated_bind: false
+  allow_unauthenticated_bind: true
   group_base: ou=groups,dc=retirement,dc=unal,dc=edu,dc=co
   ## Requires config.ldap_check_group_membership in devise.rb be true
   # Can have multiple values, must match all to be authorized
@@ -30,31 +30,31 @@ authorizations: &AUTHORIZATIONS
 ## Environment
 
 development:
-  host: localhost
-  port: 389
+  host: 104.196.22.25
+  port: 8085
   attribute: cn
-  base: ou=people,dc=retirement,dc=unal,dc=edu,dc=co
-  admin_user: cn=admin,dc=retirement,dc=unal,dc=edu,dc=co
-  admin_password: admin
+  base: ou=retirement,dc=retirement,dc=unal,dc=edu,dc=co
+  admin_user: "cn=admin,dc=retirement,dc=unal,dc=edu,dc=co"
+  admin_password: "admin"
   ssl: false
   # <<: *AUTHORIZATIONS
 
 test:
-  host: localhost
-  port: 3389
+  host: 104.196.22.25
+  port: 8085
   attribute: cn
   base: ou=people,dc=retirement,dc=unal,dc=edu,dc=co
   admin_user: cn=admin,dc=retirement,dc=unal,dc=edu,dc=co
-  admin_password: admin
+  admin_password: "admin"
   ssl: simple_tls
   # <<: *AUTHORIZATIONS
 
 production:
-  host: localhost
-  port: 636
+  host: 104.196.22.25
+  port: 8085
   attribute: cn
   base: ou=people,dc=retirement,dc=unal,dc=edu,dc=co
   admin_user: cn=admin,dc=retirement,dc=unal,dc=edu,dc=co
-  admin_password: admin
+  admin_password: "admin"
   ssl: start_tls
   # <<: *AUTHORIZATIONS

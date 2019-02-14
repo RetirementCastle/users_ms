@@ -7,8 +7,8 @@ module Devise
       def authenticate!
         if params[:user]
           ldap = Net::LDAP.new
-          ldap.host = "34.73.113.27"
-          ldap.port = "8085"
+          ldap.host = "104.196.22.25"
+          ldap.port = 8085
           ldap.auth email, password
         
           if ldap.bind
