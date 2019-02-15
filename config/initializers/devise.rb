@@ -5,21 +5,22 @@
 Devise.setup do |config|
   # ==> LDAP Configuration
    config.ldap_logger = true
-   config.ldap_create_user = true
+   config.ldap_create_user = false
   # config.ldap_update_password = true
    config.ldap_config = "#{Rails.root}/config/ldap.yml"
   # config.ldap_check_group_membership = false
   # config.ldap_check_group_membership_without_admin = false
-  # config.ldap_check_attributes = false
+   config.ldap_check_attributes = true
   # config.ldap_check_attributes_presence = false
    config.ldap_use_admin_to_bind = true
   # config.ldap_ad_group_check = false
   
-
-  
+#config.ldap_auth_username_builder = Proc.new() {|attribute, login, ldap| "#{login}@unal.edu.co"}
+=begin
   config.warden do |manager|
     manager.default_strategies(:scope => :user).unshift :ldap_authenticatable
   end
+=end
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
@@ -57,7 +58,7 @@ Devise.setup do |config|
   # session. If you need permissions, you should implement that in a before filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
-  # config.authentication_keys = [:email]
+   config.authentication_keys = [:email]
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
